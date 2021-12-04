@@ -16,7 +16,7 @@ public class StudentRepositoryImpl implements StudentRepository {
 
     @Override
     public List<Student> getAll() {
-        return entityManager.createQuery("select id, name from Student").getResultList();
+        return entityManager.createQuery("SELECT id, name FROM Student").getResultList();
     }
 
     @Override
