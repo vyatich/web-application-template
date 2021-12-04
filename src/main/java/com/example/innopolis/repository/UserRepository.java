@@ -1,6 +1,10 @@
 package com.example.innopolis.repository;
 
-public interface UserRepository<User> {
+import com.example.innopolis.entitiy.user.User;
+
+public interface UserRepository {
 
     void getAll();
+
+    User getById(Long id);
 }

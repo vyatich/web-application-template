@@ -1,4 +1,4 @@
-package com.example.innopolis.entitiy;
+package com.example.innopolis.entitiy.user;
 
 import javax.persistence.*;
 
