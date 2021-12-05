@@ -12,7 +12,6 @@
     <#list students as student>
         <tr>
             <td>${student.id}
-            <td>${student.name}
         </tr>
     </#list>
 </table>
