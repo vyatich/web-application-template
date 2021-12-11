@@ -1,6 +1,6 @@
 package com.example.innopolis.entitiy.user;
 
-public class UserDto {
+public class UserInfoDto {
 
     private Long id;
 
