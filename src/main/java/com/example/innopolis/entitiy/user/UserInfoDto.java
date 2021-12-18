@@ -3,6 +3,15 @@ package com.example.innopolis.entitiy.user;
 public class UserInfoDto {
 
     private Long id;
+    private String name;
+
+    public UserInfoDto(Long id, String name) {
+        this.id = id;
+        this.name = name;
+    }
+
+    public UserInfoDto() {
+    }
 
     public Long getId() {
         return id;
@@ -10,5 +19,13 @@ public class UserInfoDto {
 
     public void setId(Long id) {
         this.id = id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }

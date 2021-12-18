@@ -1,16 +1,16 @@
 package com.example.innopolis.entitiy.animal;
 
-import com.example.innopolis.entitiy.Group;
+import com.example.innopolis.entitiy.group.Group;
 
 import javax.persistence.*;
-import java.util.List;
+import java.util.Objects;
 
 @Entity
 @Table(name = "animals")
 public class Animal {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.SEQUENCE)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column
     private Long id;
 
@@ -43,5 +43,20 @@ public class Animal {
 
     public void setGroup(Group group) {
         this.group = group;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Animal animal = (Animal) o;
+        return Objects.equals(id, animal.id) &&
+                Objects.equals(name, animal.name) &&
+                Objects.equals(group, animal.group);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

@@ -4,7 +4,6 @@ import com.example.innopolis.entitiy.animal.Animal;
 import com.example.innopolis.repository.AnimalRepository;
 import com.example.innopolis.service.student.AnimalService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,9 +14,10 @@ public class AnimalServiceImpl implements AnimalService {
     private final AnimalRepository animalRepository;
 
     @Autowired
-    public AnimalServiceImpl(@Lazy AnimalRepository animalRepository) {
+    public AnimalServiceImpl(AnimalRepository animalRepository) {
         this.animalRepository = animalRepository;
     }
+
 
     @Override
     public List<Animal> getAll() {
