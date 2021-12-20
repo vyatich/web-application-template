@@ -1,0 +1,1 @@
+INSERT INTO user_info(id, name, user_name, password, role) values(1, 'Вася', 'Vasya', 'Vasya', 'ADMIN');
