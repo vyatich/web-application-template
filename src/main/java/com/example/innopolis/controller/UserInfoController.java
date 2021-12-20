@@ -30,12 +30,19 @@ public class UserInfoController {
         return "user";
     }
 
+    @GetMapping("all/")
+    public String getAll(Model model) {
+        List<UserInfo> all = userInfoService.getAll();
+        model.addAttribute("userInfo", all);
+        return "user";
+    }
+
     @GetMapping("{id}")
     public UserInfo getById(@PathVariable long id) {
         return userInfoService.getById(id);
     }
 
-    @PostMapping("/login")
+    @PostMapping("login")
     public String auth(@RequestParam(value = "error", required = false) String error,
                        @RequestParam(value = "logout", required = false) String logout,
                        Model model) {

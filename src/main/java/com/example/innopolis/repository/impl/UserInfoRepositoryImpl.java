@@ -2,6 +2,8 @@ package com.example.innopolis.repository.impl;
 
 import com.example.innopolis.entitiy.user.UserInfo;
 import com.example.innopolis.entitiy.user.UserInfoDto;
+import com.example.innopolis.repository.AbstractRepositoryImpl;
+import com.example.innopolis.repository.EntityRepository;
 import com.example.innopolis.repository.UserInfoRepository;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
@@ -11,8 +13,9 @@ import javax.persistence.PersistenceContext;
 import java.util.List;
 
 @Repository
-public class UserInfoRepositoryImpl implements UserInfoRepository {
+public class UserInfoRepositoryImpl extends AbstractRepositoryImpl<UserInfo> implements UserInfoRepository {
 
+    private static final String TABLE_NAME = "user_info";
     private final String SELECT_ALL_DTOS = "SELECT new com.example.innopolis.entitiy.user.UserInfoDto(u.id, u.name) " +
             "FROM UserInfo u";
 
@@ -25,12 +28,22 @@ public class UserInfoRepositoryImpl implements UserInfoRepository {
     }
 
     @Override
-    public UserInfo getById(Long id) {
+    public UserDetails getByUserName(String username) {
         return null;
     }
 
     @Override
-    public UserDetails getByUserName(String username) {
-        return null;
+    protected EntityRepository getRepository() {
+        return this;
+    }
+
+    @Override
+    protected String getTable() {
+        return TABLE_NAME;
+    }
+
+    @Override
+    protected Class<UserInfo> getEntityClass() {
+        return UserInfo.class;
     }
 }

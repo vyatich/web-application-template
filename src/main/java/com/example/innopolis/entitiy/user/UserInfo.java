@@ -5,12 +5,14 @@ import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Collection;
 import java.util.Collections;
+import java.util.Objects;
 
 @Entity
 @Table(name = "user_info")
-public class UserInfo implements UserDetails {
+public class UserInfo implements UserDetails, Serializable {
 
     @Column
     @Id
@@ -86,5 +88,21 @@ public class UserInfo implements UserDetails {
     @Override
     public boolean isEnabled() {
         return true;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserInfo userInfo = (UserInfo) o;
+        return Objects.equals(id, userInfo.id) &&
+                Objects.equals(name, userInfo.name) &&
+                Objects.equals(userName, userInfo.userName) &&
+                Objects.equals(password, userInfo.password);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id);
     }
 }

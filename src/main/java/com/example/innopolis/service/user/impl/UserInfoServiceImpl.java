@@ -24,12 +24,17 @@ public class UserInfoServiceImpl implements UserInfoService, UserDetailsService 
 
     @Override
     public UserInfo getById(long id) {
-        return null;
+        return (UserInfo) userInfoRepository.getById(id);
     }
 
     @Override
     public List<UserInfoDto> getAllDtos() {
         return userInfoRepository.getAllDtos();
+    }
+
+    @Override
+    public List<UserInfo> getAll() {
+        return userInfoRepository.getAll();
     }
 
     @Override

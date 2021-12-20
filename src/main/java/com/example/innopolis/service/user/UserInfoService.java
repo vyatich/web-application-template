@@ -10,4 +10,6 @@ public interface UserInfoService {
     UserInfo getById(long id);
 
     List<UserInfoDto> getAllDtos();
+
+    List<UserInfo> getAll();
 }
