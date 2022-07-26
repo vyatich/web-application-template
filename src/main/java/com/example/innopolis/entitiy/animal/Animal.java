@@ -22,6 +22,9 @@ public class Animal {
     @JoinColumn(name = "group_id")
     private Group group;
 
+    @Transient
+    private Long age;
+
     public Long getId() {
         return id;
     }
