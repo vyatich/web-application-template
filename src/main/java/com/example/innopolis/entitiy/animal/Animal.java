@@ -4,6 +4,7 @@ import com.example.innopolis.entitiy.group.Group;
 
 import javax.persistence.*;
 import java.util.Objects;
+import java.util.StringJoiner;
 
 @Entity
 @Table(name = "animals")
@@ -58,5 +59,14 @@ public class Animal {
     @Override
     public int hashCode() {
         return Objects.hash(id);
+    }
+
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Animal.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("name='" + name + "'")
+                .add("group=" + group)
+                .toString();
     }
 }
