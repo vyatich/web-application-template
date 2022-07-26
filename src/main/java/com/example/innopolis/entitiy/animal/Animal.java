@@ -22,6 +22,9 @@ public class Animal {
     @JoinColumn(name = "group_id")
     private Group group;
 
+    @Transient
+    private Long age;
+
     public Long getId() {
         return id;
     }
@@ -68,5 +71,13 @@ public class Animal {
                 .add("name='" + name + "'")
                 .add("group=" + group)
                 .toString();
+    }
+
+    public Long getAge() {
+        return age;
+    }
+
+    public void setAge(Long age) {
+        this.age = age;
     }
 }
