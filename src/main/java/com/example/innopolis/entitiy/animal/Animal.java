@@ -64,6 +64,15 @@ public class Animal {
         return Objects.hash(id);
     }
 
+    @Override
+    public String toString() {
+        return new StringJoiner(", ", Animal.class.getSimpleName() + "[", "]")
+                .add("id=" + id)
+                .add("name='" + name + "'")
+                .add("group=" + group)
+                .toString();
+    }
+
     public Long getAge() {
         return age;
     }
