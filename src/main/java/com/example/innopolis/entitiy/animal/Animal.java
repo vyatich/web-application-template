@@ -63,4 +63,12 @@ public class Animal {
     public int hashCode() {
         return Objects.hash(id);
     }
+
+    public Long getAge() {
+        return age;
+    }
+
+    public void setAge(Long age) {
+        this.age = age;
+    }
 }
